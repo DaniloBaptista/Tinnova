@@ -1,0 +1,23 @@
+<form (ngSubmit)="submitForm()" class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Marca" name="marca" [(ngModel)]="veiculo.marca" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Veiculo" name="veiculo" [(ngModel)]="veiculo.veiculo" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Ano" name="ano" [(ngModel)]="veiculo.ano" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Descricao" name="descricao" [(ngModel)]="veiculo.descricao" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Vendido" name="vendido" [(ngModel)]="veiculo.vendido" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Cor" name="cor" [(ngModel)]="veiculo.cor" required>
+      </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Enviar</button>
+  </form>
+  
+  

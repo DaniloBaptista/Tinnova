@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "3d93102a-044a-461f-8037-e16df2c9465a",
+		"name": "Tinnova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33185025"
+	},
+	"item": [
+		{
+			"name": "Tinnova GET /veiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/veiculos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tinnova GET /veiculos?marca={marca}&ano={ano}&cor={cor}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/veiculos/by-parametro?marca=Chevrolet&ano=2015&cor=vermelho",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculos",
+						"by-parametro"
+					],
+					"query": [
+						{
+							"key": "marca",
+							"value": "Chevrolet"
+						},
+						{
+							"key": "ano",
+							"value": "2015"
+						},
+						{
+							"key": "cor",
+							"value": "vermelho"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tinnova GET /veiculos/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/veiculos/find-by-id?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculos",
+						"find-by-id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tinnova POST /veiculos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"veiculo\": \"Corolla\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/veiculo/adicionar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculo",
+						"adicionar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tinnova DELETE/veiculo/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/veiculo/deletar?id=13",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculo",
+						"deletar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /veiculos/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"veiculo\": \"Corolla2\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/veiculo/atualizar?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculo",
+						"atualizar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /veiculo/{id}",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Opel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/veiculo/atualizar?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"veiculo",
+						"atualizar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
