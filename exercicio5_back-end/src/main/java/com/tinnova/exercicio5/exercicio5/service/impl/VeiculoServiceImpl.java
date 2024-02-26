@@ -39,6 +39,7 @@ public class VeiculoServiceImpl implements VeiculoService {
 	@Override
 	public VeiculoDTO getVeiculosById(Long id) {
 		return veiculoMapperService.convertToDto(veiculoRepository.getById(id));
+
 	}
 
 	@Override
@@ -56,38 +57,25 @@ public class VeiculoServiceImpl implements VeiculoService {
 
 	@Override
 	public ResponseEntity<VeiculoDTO> atualizarVeiculoPut(Long id, Veiculo veiculoRecebido) {
-		Veiculo veiculoExistente = veiculoRepository.getById(id);
-
+		VeiculoDTO veiculoExistente = this.getVeiculosById(id);
 		if (veiculoExistente == null) {
 			return ResponseEntity.notFound().build();
 		}
-		Veiculo veic = this.setarObjetoAtualizado(veiculoRecebido, veiculoExistente);
-
-		return ResponseEntity.ok(veiculoMapperService.convertToDto(veic));
+		veiculoRecebido.setId(id);
+		veiculoRepository.save(veiculoRecebido);
+		return ResponseEntity.ok(veiculoMapperService.convertToDto(veiculoRecebido));
 	}
 
 	@Override
 	public ResponseEntity<VeiculoDTO> atualizarVeiculoPatch(Long id, String marca) {
-		Veiculo veiculoExistente = veiculoRepository.getById(id);
-
+		VeiculoDTO veiculoExistente = this.getVeiculosById(id);
 		if (veiculoExistente == null) {
 			return ResponseEntity.notFound().build();
 		}
 		veiculoExistente.setMarca(marca);
-		veiculoRepository.save(veiculoExistente);
-		return ResponseEntity.ok(veiculoMapperService.convertToDto(veiculoExistente));
+		veiculoRepository.save(veiculoMapperService.convertToEntity(veiculoExistente));
+		return ResponseEntity.ok(veiculoExistente);
 	}
 
 	
-	public Veiculo setarObjetoAtualizado(Veiculo veiculo, Veiculo veiculoExistente) {
-		veiculoExistente.setVeiculo(veiculo.getVeiculo());
-		veiculoExistente.setMarca(veiculo.getMarca());
-		veiculoExistente.setAno(veiculo.getAno());
-		veiculoExistente.setDescricao(veiculo.getDescricao());
-		veiculoExistente.setVendido(veiculo.getVendido());
-		veiculoExistente.setCreated(Calendar.getInstance());
-		veiculoExistente.setUpdated(Calendar.getInstance());
-		veiculoExistente.setCor(veiculo.getCor());
-		return veiculoExistente;
-	}
 }

@@ -18,7 +18,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "Veiculos")
@@ -50,6 +49,22 @@ public class Veiculo {
 		this.vendido = vendido;
 		this.cor = cor;
 	}
+
+	public Veiculo(Long id, String veiculo, String marca, Long ano, String descricao, Long vendido, Calendar created,
+			Calendar updated, String cor) {
+		super();
+		this.id = id;
+		this.veiculo = veiculo;
+		this.marca = marca;
+		this.ano = ano;
+		this.descricao = descricao;
+		this.vendido = vendido;
+		this.created = created;
+		this.updated = updated;
+		this.cor = cor;
+	}
+	
+	
     
 
 

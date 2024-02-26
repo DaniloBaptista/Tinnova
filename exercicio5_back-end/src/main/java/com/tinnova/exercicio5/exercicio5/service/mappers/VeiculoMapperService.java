@@ -16,4 +16,9 @@ public class VeiculoMapperService {
         VeiculoDTO veiculoDTO = modelMapper.map(veiculo, VeiculoDTO.class);
         return veiculoDTO;
     }
+    
+    public Veiculo convertToEntity(VeiculoDTO veiculo) {
+        Veiculo veiculoEntity = modelMapper.map(veiculo, Veiculo.class);
+        return veiculoEntity;
+    }
 }

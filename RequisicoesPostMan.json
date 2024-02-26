@@ -26,7 +26,7 @@
 			"response": []
 		},
 		{
-			"name": "Tinnova GET /veiculos?marca={marca}&ano={ano}&cor={cor}",
+			"name": "Tinnova GET /veiculos-parametros?marca={marca}&ano={ano}&cor={cor}",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -159,7 +159,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"veiculo\": \"Corolla3\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}",
+					"raw": "{\n    \"veiculo\": \"Corolla\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -167,7 +167,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/veiculo?id=4",
+					"raw": "localhost:8080/api/veiculo?id=1",
 					"host": [
 						"localhost"
 					],
@@ -179,7 +179,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "4"
+							"value": "1"
 						}
 					]
 				}
@@ -201,7 +201,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/veiculo?id=4",
+					"raw": "localhost:8080/api/veiculo?id=1",
 					"host": [
 						"localhost"
 					],
@@ -213,7 +213,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "4"
+							"value": "1"
 						}
 					]
 				}
