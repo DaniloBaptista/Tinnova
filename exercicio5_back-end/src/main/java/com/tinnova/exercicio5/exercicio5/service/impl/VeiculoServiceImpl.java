@@ -1,6 +1,7 @@
 package com.tinnova.exercicio5.exercicio5.service.impl;
 
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -43,8 +44,8 @@ public class VeiculoServiceImpl implements VeiculoService {
 	@Override
 	public VeiculoDTO saveVeiculo(Veiculo veiculo) {
 		long millisAtual = System.currentTimeMillis();
-		veiculo.setUpdated(new Date(millisAtual));
-		veiculo.setCreated(new Date(millisAtual));
+		veiculo.setUpdated(Calendar.getInstance());
+		veiculo.setCreated(Calendar.getInstance());
 		return veiculoMapperService.convertToDto(veiculoRepository.save(veiculo));
 	}
 
@@ -65,19 +66,6 @@ public class VeiculoServiceImpl implements VeiculoService {
 		return ResponseEntity.ok(veiculoMapperService.convertToDto(veic));
 	}
 
-	public Veiculo setarObjetoAtualizado(Veiculo veiculo, Veiculo veiculoExistente) {
-		long millisAtual = System.currentTimeMillis();
-		veiculoExistente.setVeiculo(veiculo.getVeiculo());
-		veiculoExistente.setMarca(veiculo.getMarca());
-		veiculoExistente.setAno(veiculo.getAno());
-		veiculoExistente.setDescricao(veiculo.getDescricao());
-		veiculoExistente.setVendido(veiculo.getVendido());
-		veiculoExistente.setCreated(new Date(millisAtual));
-		veiculoExistente.setUpdated(new Date(millisAtual));
-		veiculoExistente.setCor(veiculo.getCor());
-		return veiculoExistente;
-	}
-
 	@Override
 	public ResponseEntity<VeiculoDTO> atualizarVeiculoPatch(Long id, String marca) {
 		Veiculo veiculoExistente = veiculoRepository.getById(id);
@@ -90,4 +78,16 @@ public class VeiculoServiceImpl implements VeiculoService {
 		return ResponseEntity.ok(veiculoMapperService.convertToDto(veiculoExistente));
 	}
 
+	
+	public Veiculo setarObjetoAtualizado(Veiculo veiculo, Veiculo veiculoExistente) {
+		veiculoExistente.setVeiculo(veiculo.getVeiculo());
+		veiculoExistente.setMarca(veiculo.getMarca());
+		veiculoExistente.setAno(veiculo.getAno());
+		veiculoExistente.setDescricao(veiculo.getDescricao());
+		veiculoExistente.setVendido(veiculo.getVendido());
+		veiculoExistente.setCreated(Calendar.getInstance());
+		veiculoExistente.setUpdated(Calendar.getInstance());
+		veiculoExistente.setCor(veiculo.getCor());
+		return veiculoExistente;
+	}
 }

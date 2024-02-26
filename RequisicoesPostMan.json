@@ -31,15 +31,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/veiculos/by-parametro?marca=Chevrolet&ano=2015&cor=vermelho",
+					"raw": "localhost:8080/api/veiculos-parametros?marca=Chevrolet&ano=2015&cor=vermelho",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"veiculos",
-						"by-parametro"
+						"veiculos-parametros"
 					],
 					"query": [
 						{
@@ -60,7 +59,7 @@
 			"response": []
 		},
 		{
-			"name": "Tinnova GET /veiculos/{id}",
+			"name": "Tinnova GET /veiculos-by-id/{id}",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -72,20 +71,19 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/api/veiculos/find-by-id?id=5",
+					"raw": "localhost:8080/api/veiculos-by-id?id=14",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"veiculos",
-						"find-by-id"
+						"veiculos-by-id"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "5"
+							"value": "14"
 						}
 					]
 				}
@@ -99,7 +97,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"veiculo\": \"Corolla\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}\n",
+					"raw": "{\n    \"veiculo\": \"Corolla\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"cor\": \"Prata\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -107,22 +105,21 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/veiculo/adicionar",
+					"raw": "localhost:8080/api/veiculos",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"veiculo",
-						"adicionar"
+						"veiculos"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Tinnova DELETE/veiculo/{id}",
+			"name": "Tinnova DELETE/veiculo-deletar/{id}",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -136,20 +133,19 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/veiculo/deletar?id=13",
+					"raw": "localhost:8080/api/veiculo-deletar?id=18",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"veiculo",
-						"deletar"
+						"veiculo-deletar"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "13"
+							"value": "18"
 						}
 					]
 				}
@@ -163,7 +159,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"veiculo\": \"Corolla2\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}",
+					"raw": "{\n    \"veiculo\": \"Corolla3\",\n    \"marca\": \"Toyota\",\n    \"ano\": 2012,\n    \"descricao\": \"Usado, Prata\",\n    \"created\": \"2024-02-24\",\n    \"updated\": \"2024-02-24\",\n    \"cor\": \"Prata\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -171,15 +167,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/veiculo/atualizar?id=4",
+					"raw": "localhost:8080/api/veiculo?id=4",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"veiculo",
-						"atualizar"
+						"veiculo"
 					],
 					"query": [
 						{
@@ -206,15 +201,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/veiculo/atualizar?id=4",
+					"raw": "localhost:8080/api/veiculo?id=4",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"api",
-						"veiculo",
-						"atualizar"
+						"veiculo"
 					],
 					"query": [
 						{

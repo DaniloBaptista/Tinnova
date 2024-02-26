@@ -3,6 +3,7 @@ package com.tinnova.exercicio5.exercicio5.entity;
 
 
 import java.sql.Date;
+import java.util.Calendar;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,8 +31,8 @@ public class Veiculo {
     private Long ano;
     private String descricao;
     private Long vendido;
-    private Date created;
-    private Date updated;
+    private Calendar created;
+    private Calendar updated;
     private String cor;
     
 	public Veiculo(String marca,String veiculo) {

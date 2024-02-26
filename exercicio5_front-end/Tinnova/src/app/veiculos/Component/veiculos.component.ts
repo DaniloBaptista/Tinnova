@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VeiculosService } from './veiculos.service';
+import { MarcasCarroEnum } from '../enum/marca-enum';
+import { VeiculosService } from '../Service/veiculos.service';
+
 
 @Component({
   selector: 'app-veiculos',
@@ -22,6 +24,7 @@ export class VeiculosComponent implements OnInit {
   }
 
   submitForm() {
+    this.verificarMarcaExiste();
     this.veiculoService.adicionarVeiculo(this.veiculo).subscribe(
       (response) => {
         console.log('Veículo adicionado com sucesso!', response);
@@ -29,6 +32,12 @@ export class VeiculosComponent implements OnInit {
       (error) => {
       }
     );
+  }
+  verificarMarcaExiste(){
+    if (!Object.values(MarcasCarroEnum).includes(this.veiculo.marca)) {
+      alert('Marca inválida. Escolha uma das marcas permitidas.');
+      return;
+    };
   }
 }
 

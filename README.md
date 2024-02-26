@@ -15,6 +15,8 @@ Visual Studio Code.
 Exercícios de 1 a 4: exercicios1a4.
 Exercício 5: exercicio5_back-end e exercicio5_front-end
 
+Script SQL da tabela do exercício 5 e as requisições exportadas do postman estão na raiz do repositório.
+
 *Pelo prazo estabelecido, não foi possível finalizar tudo que o exercício 5 pedia, porém, foi feito a maior parte do que foi pedido. 
 
 Agradeço pela compreensão.

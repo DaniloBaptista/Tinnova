@@ -25,56 +25,56 @@ import com.tinnova.exercicio5.exercicio5.service.mappers.VeiculoMapperService;
 @RestController
 @RequestMapping("/api")
 public class veiculoController {
-	
+
 	@Autowired
 	private VeiculoService veiculoService;
-	
+
 	@Autowired
 	private VeiculoMapperService veiculoMapperService;
-	
+
 	@GetMapping("/veiculos")
 	public List<VeiculoDTO> getAllVeiculos() {
 		return veiculoService.getAllVeiculos();
 	}
-	
-	@GetMapping("/veiculos/by-parametro")
+
+	@GetMapping("/veiculos-parametros")
 	public List<VeiculoDTO> getVeiculosByParametro(@RequestParam(name = "marca") String marca,
-			@RequestParam(name = "ano") Long ano, 
-			@RequestParam(name = "cor") String cor) {
-			
-		return veiculoService.getVeiculosPorParametro( marca,  ano,  cor);
+			@RequestParam(name = "ano") Long ano, @RequestParam(name = "cor") String cor) {
+
+		return veiculoService.getVeiculosPorParametro(marca, ano, cor);
 	}
-	
-	@GetMapping("/veiculos/find-by-id")
+
+	@GetMapping("/veiculos-by-id")
 	public VeiculoDTO getVeiculosById(@RequestParam(name = "id") Long id) {
-			
+
 		return veiculoService.getVeiculosById(id);
 	}
-	@PostMapping(path = "/veiculo/adicionar", consumes = "application/json")
-    public ResponseEntity<VeiculoDTO> adicionarVeiculo(@RequestBody Veiculo veiculo) {
-		return new ResponseEntity<>(veiculoService.saveVeiculo(veiculo)
-		, HttpStatus.CREATED);
-    }
-	
-	@DeleteMapping("/veiculo/deletar")
-    public ResponseEntity<VeiculoDTO> deletarVeiculo(@RequestParam(name = "id") Long id) {
+
+	@PostMapping(path = "/veiculos", consumes = "application/json")
+	public ResponseEntity<VeiculoDTO> adicionarVeiculo(@RequestBody Veiculo veiculo) {
+		return new ResponseEntity<>(veiculoService.saveVeiculo(veiculo), HttpStatus.CREATED);
+	}
+
+	@DeleteMapping("/veiculo-deletar")
+	public ResponseEntity<VeiculoDTO> deletarVeiculo(@RequestParam(name = "id") Long id) {
 		veiculoService.deletarVeiculo(id);
 		return ResponseEntity.ok().build();
-		
-    }
-	
-	 @PutMapping(path = "/veiculo/atualizar", consumes = "application/json")
-	    public ResponseEntity<VeiculoDTO> atualizarVeiculoPut(@RequestParam(name = "id") Long id, @RequestBody Veiculo veiculo) {
-		 veiculoService.atualizarVeiculoPut(id, veiculo);
-			return ResponseEntity.ok().build();
-		 
-	    }
-	 
-	 @PatchMapping(path = "/veiculo/atualizar", consumes = "application/json")
-	    public ResponseEntity<VeiculoDTO> atualizarVeiculoPatch(@RequestParam(name = "id") Long id, @RequestBody Veiculo veiculo) {
-		 veiculoService.atualizarVeiculoPatch(id, veiculo.getMarca());
-			return ResponseEntity.ok().build();
-		 
-	    }
-}
 
+	}
+
+	@PutMapping(path = "/veiculo", consumes = "application/json")
+	public ResponseEntity<VeiculoDTO> atualizarVeiculoPut(@RequestParam(name = "id") Long id,
+			@RequestBody Veiculo veiculo) {
+		veiculoService.atualizarVeiculoPut(id, veiculo);
+		return ResponseEntity.ok().build();
+
+	}
+
+	@PatchMapping(path = "/veiculo", consumes = "application/json")
+	public ResponseEntity<VeiculoDTO> atualizarVeiculoPatch(@RequestParam(name = "id") Long id,
+			@RequestBody Veiculo veiculo) {
+		veiculoService.atualizarVeiculoPatch(id, veiculo.getMarca());
+		return ResponseEntity.ok().build();
+
+	}
+}
